@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             
-            $table->string('name',45);
-            $table->string('slug',75);
+            $table->string('name');
+            $table->string('slug');
             $table->text('extract');
             $table->longText('body');
             $table->enum('status',[1,2]);
