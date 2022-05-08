@@ -1,0 +1,18 @@
+/* CREAMOS LAS CLASES QUE VAN A SER COMUNES COMO EL CONTAINER */
+/* CUANDO USAMO APPLY NO VALEN Los prefijos de tailwind SE HACEN APARTE*/
+
+.container {
+    @apply max-w-screen-2xl mx-auto px-2;
+}
+
+@media (min-width: 640px) {
+    .container {
+        @apply px-6;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        @apply px-8;
+    }
+}

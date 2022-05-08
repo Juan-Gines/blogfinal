@@ -1,5 +1,6 @@
-<nav class="bg-gray-800" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+<nav class="bg-gray-800 mb-8" x-data="{ open: false }">
+    {{-- creamos un container para que nos ponga todos los css --}}
+    <div class="container">
         <div class="relative flex items-center justify-between h-16">
 
             <!-- Mobile menu button-->
@@ -56,7 +57,7 @@
                             aria-current="page">Dashboard</a> --}}
 
                         @foreach ($categories as $category)
-                            <a href="#"
+                            <a href="{{ route('posts.category', $category) }}"
                                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 {{ $category->name }}
                             </a>
@@ -97,15 +98,15 @@
                         </div>
 
                         <!--
-                                            Dropdown menu, show/hide based on menu state.
+                                                                        Dropdown menu, show/hide based on menu state.
 
-                                            Entering: "transition ease-out duration-100"
-                                                From: "transform opacity-0 scale-95"
-                                                To: "transform opacity-100 scale-100"
-                                            Leaving: "transition ease-in duration-75"
-                                                From: "transform opacity-100 scale-100"
-                                                To: "transform opacity-0 scale-95"
-                                            -->
+                                                                        Entering: "transition ease-out duration-100"
+                                                                            From: "transform opacity-0 scale-95"
+                                                                            To: "transform opacity-100 scale-100"
+                                                                        Leaving: "transition ease-in duration-75"
+                                                                            From: "transform opacity-100 scale-100"
+                                                                            To: "transform opacity-0 scale-95"
+                                                                        -->
                         <div x-show="open" x-on:click.away="open = false"
                             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
@@ -143,7 +144,7 @@
                 aria-current="page">Dashboard</a> --}}
 
             @foreach ($categories as $category)
-                <a href="#"
+                <a href="{{ route('posts.category', $category) }}"
                     class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ $category->name }}</a>
             @endforeach
         </div>
