@@ -179,6 +179,9 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        //laravel permission
+        Spatie\Permission\PermissionServiceProvider::class,
+
     ],
 
     /*

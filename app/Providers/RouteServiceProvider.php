@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    public const HOME = '/';//cambiamos la ruta de la web cuando nos autentificamos
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -35,6 +35,10 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware('web','auth')//agregamos el auth para usuarios autentificados
+                ->prefix('admin') //con esto nos ahorramos escribir admin en cada ruta del archivo admin.php
+                ->group(base_path('routes/admin.php')); //agregamos admin.php como archivo de rutas
         });
     }
 

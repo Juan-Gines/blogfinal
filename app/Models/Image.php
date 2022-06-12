@@ -9,6 +9,8 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable =['url'];
+
     //relación 1 a 1 polimorfica inversa
 
     public function imageable(){

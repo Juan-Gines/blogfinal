@@ -4,7 +4,7 @@
             @foreach ($posts as $post)
                 <article
                     class="w-full h-80 bg-cover bg-center rounded-md shadow-lg shadow-gray-600 @if ($loop->first) md:col-span-2 @endif"
-                    style="background-image: url({{ Storage::url($post->image->url) }})">
+                    style="background-image: url(@if ($post->image) {{ Storage::url($post->image->url) }} @else {{ Storage::url('default/image.jpg') }} @endif)">
                     <div class="w-full h-full px-8 flex flex-col justify-center">
                         <div class="mb-4">
                             @foreach ($post->tags as $tag)
@@ -30,6 +30,12 @@
                                             @break
                                         @case('yellow')
                                             bg-yellow-600
+                                            @break
+                                        @case('gray')
+                                            bg-gray-600
+                                            @break   
+                                        @case('teal')
+                                            bg-teal-600
                                             @break @endswitch   
                                         text-white rounded-full">
                                     {{ $tag->name }}

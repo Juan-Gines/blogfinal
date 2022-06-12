@@ -17,15 +17,15 @@ class UserSeeder extends Seeder
     {
         //creamos 2 registros validos
         User::create([
-            'name'=>'Juan Ginés Alentà',
-            'email'=>'juangalenta@hotmail.com',
-            'password'=>bcrypt('12345678')
-        ]);
+            'name' => 'Juan Ginés Alentà',
+            'email' => 'juangalenta@hotmail.com',
+            'password' => bcrypt('12345678')
+        ])->assignRole('Admin');
         User::create([
-            'name'=>'Ariadna Alentà',
-            'email'=>'ariadnaalenta@hotmail.com',
-            'password'=>bcrypt('12345678')
-        ]);
-        User::factory(98)->create();//crea 98 registros falsos
+            'name' => 'Ariadna Alentà',
+            'email' => 'ariadnaalenta@hotmail.com',
+            'password' => bcrypt('12345678')
+        ])->assignRole('Blogger');
+        User::factory(98)->create(); //crea 98 registros falsos
     }
 }
